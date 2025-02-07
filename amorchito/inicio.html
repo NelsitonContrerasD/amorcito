@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida a Valentine's Day</title>
+    <link rel="stylesheet" href="/css/esitlo boton.css">
+</head>
+<body>
+    <div class="welcome-container" id="welcomeContainer">
+        <h1>¡Bienvenido a Valentine's Day!</h1>
+        <p>Haz clic en el botón para ingresar a la página especial.</p>
+        <button class="btn" id="enterButton">Entrar</button>
+    </div>
+
+    <script>
+        const welcomeContainer = document.getElementById('welcomeContainer');
+        const enterButton = document.getElementById('enterButton');
+
+        enterButton.addEventListener('click', () => {
+          
+            welcomeContainer.classList.add('fade-out');
+
+            setTimeout(() => {
+                window.location.href = 'amor.html';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
