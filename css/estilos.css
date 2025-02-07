@@ -1,0 +1,89 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6e6;
+    color: #990000;
+    opacity: 0; /* Inicialmente invisible */
+    animation: fadeIn 1s ease forwards; /* Animación de entrada */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #ff4d4d;
+}
+
+.card p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #ff4d4d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.hearts {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heart {
+    color: #ff4d4d;
+    font-size: 2em;
+    margin: 0 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
