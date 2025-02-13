@@ -2,35 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/amorcito-main/amorchito/Corazon_sin_fondo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️❤️❤️❤️❤️</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+    <title>te amo mucho</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <style>
+        .heart {
+            font-size: 2rem;
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            Feliz Dia amorcito
+            Feliz Día de San Valentín amorcito
         </header>
 
         <main>
             <div class="card">
-                <h2>Te aprecio tanto que me quedo sin palabras</h2>
-                <p>
-                    Valentine's Day is a special time to celebrate love and affection. 
-                    Whether you're spending it with a significant other, friends, or family, 
-                    it's a day to show appreciation and care for those you love.
+                <h2>Te AMO tanto que me quedo sin palabras</h2>
+                <p id="amor">
+                    Desde el primer día que te conocí, supe que eras especial. 
+                    Este tiempo que he compartido contigo, mi blanquita preciosa, 
+                    ha sido muy bello. Cada momento a tu lado ha sido un regalo, 
+                    y cada día que pasa mi amor por ti crece más y mas. Eres mi razón de mi felicidad
+                     y mi inspiración para ser mejor.
+                    <br><br>
+                    Poco a poco me doy cuenta de que realmente quiero acompañarte 
+                    toda mi vida, para continuar creando recuerdos inolvidables juntos. 
+                    te amarte y estare a tu lado siempre. 
+                    <br><br>
+                    Te amo, te amo y también te amo.
+                    <img src="/amorcito-main/amorchito/te amo 2.gif" alt="Funny image">
+
                 </p>
+               
+            <button id="btn">
                 <div class="hearts">
                     <div class="heart">❤️</div>
                     <div class="heart">❤️</div>
                     <div class="heart">❤️</div>
                 </div>
+            </button>
             </div>
         </main>
 
         <footer>
-            &copy; Te amo amorchito.
+            &copy; con mucho cariño, para la mujer más bella.
         </footer>
     </div>
+
+    <script>
+        const textos = [
+            "Eres la luz de mi vida, te amo más que a nada en este mundo.",
+            "Cada día a tu lado es un regalo, te amo con todo mi corazón.",
+            "Eres mi razón de ser, te amo más allá de las palabras.",
+            "Contigo he encontrado el amor verdadero, te amo infinitamente.",
+            "Eres mi todo, te amo más de lo que las palabras pueden expresar."
+        ];
+
+        let textoAnterior = "";
+
+        function cambiarTexto() {
+            let textoAleatorio;
+            do {
+                textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
+            } while (textoAleatorio === textoAnterior);
+
+            textoAnterior = textoAleatorio;
+            document.getElementById("amor").textContent = textoAleatorio;
+        }
+
+        document.getElementById("btn").addEventListener("click", cambiarTexto);
+    </script>
 </body>
 </html>
