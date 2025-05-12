@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de las Madres</title>
+    <link rel="stylesheet" href="./css/M.CSS">
+    <style>
+        h2{
+            color: #ff4d4d;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body> 
+    <header>Feliz Día mi amor</header>
+    <MAin>
+    <div id="s">
+        <a  href="inicio.html" class="back-btn">←</a>
+    </div>       
+    
+    <div class="container">
+
+        <div  class="card">
+            
+            <h2 id="amor">Eres la mejor mujer del mundo, te voy comer a besos</h2>
+            <p>
+                ¡Feliz Día de las Madres, mi amor! 💕 
+                quiero recordarte lo especial que eres para mí este dia de las madres. 
+                Te amo con todo mi ser, incluso cuando te hago enojar yo te amo asi mi niña enojona. 
+                Feliz dia de la madre, y felicidades también a tu mamá, 
+                gracias a ella te tengo en mi vida. ¡Te adoro te amo y jamas dejare de amarte! 🥰.<br>
+                Te amo y espero que tu vida este llena de cosas bonitas, 
+                te adoró, te amo y te mando muchos becitos mi amor.
+                <img src="./b.gif" class="img" alt="Funny image">
+            </p>
+            <button id="btn-madres">
+                <div class="flowers">
+                    <div class="flower">🌸</div>
+                    <div class="flower">🌸</div>
+                    <div class="flower">🌸</div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+        <button class="regalo-btn" id="btn-regalo">🎁</button>
+    <div class="modal" id="modal-regalo">
+        <div class="modal-contenido">
+            <h3>¡Para la mamá de kyroo, la mejor mama y la mujer que amo!</h3>
+            <img src="mi vida y su hijo.jpg" alt="Regalo especial"> <!-- Reemplaza con tu imagen -->
+
+        </div>
+    </div>
+
+
+    <script>
+        const mensajes = [
+            "Te amo con todo mi corazón.",
+            "Gracias por todo amor y por siempre haciendome compañia, te amo.",
+            "No hay palabras para expresar lo mucho que te AMO.",
+            "Tu amor es mi mayor tesoro. ¡Feliz Día Amor!"
+        ];
+        let mensajeAnterior = "";
+
+        function cambiarMensaje() {
+            let mensajeAleatorio;
+            do {
+                mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+            } while (mensajeAleatorio === mensajeAnterior);
+
+            mensajeAnterior = mensajeAleatorio;
+            document.getElementById("amor").textContent = mensajeAleatorio;
+        }
+
+        document.getElementById("btn-madres").addEventListener("click", cambiarMensaje);
+
+        // Efecto fade al volver al inicio
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.animation = 'fadeOut 0.5s ease-in-out forwards';
+            setTimeout(() => {
+                window.location.href = 'inicio.html';
+            }, 500);
+        });
+                // Script para el modal del regalo
+        const btnRegalo = document.getElementById('btn-regalo');
+        const modalRegalo = document.getElementById('modal-regalo');
+        const cerrarModal = document.getElementById('cerrar-modal');
+
+        btnRegalo.addEventListener('click', () => {
+            modalRegalo.style.display = 'flex';
+        });
+
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modalRegalo.addEventListener('click', (e) => {
+            if (e.target === modalRegalo) {
+                modalRegalo.style.display = 'none';
+            }
+        });
+    </script>
+    </MAin>
+</body>
+    <footer>
+        <p>Hecho con <span class="flor">🌸</span> para la mejor mujer</p>
+        <p>&copy; 2025 - Con todo mi amor</p>
+    </footer>
+
+</html>

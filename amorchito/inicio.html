@@ -2,38 +2,132 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="Corazon_sin_fondo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>te amo mucho mucho</title>
-    <link rel="stylesheet" href="./css/esitlo boton.css">
+    <title>Feliz Día Especial</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body.fade-out {
+            opacity: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 30px;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            padding: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        .card h2 {
+            color: #d81b60;
+            margin: 10px 0;
+        }
+        .card p {
+            color: #555;
+        }
+        .san-valentin {
+            border-top: 5px solid #e91e63;
+        }
+        .dia-madres {
+            border-top: 5px solid #4caf50;
+        }
+        footer {
+            width: 100%;
+            background-color: #d81b60;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        .corazon {
+            color: #ffebee;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-    <div class="welcome-container" id="welcomeContainer">
-        <h1>FELIZ DIA DE SAN VALENTIN MI BIZCOCHITO <3</h1>
-        <p>
-            <img src="ef9687b36e36605b375b4e9b0cde51db.gif" alt="Funny image">
-        </p> <div ></div>
-
-        <button class="btn" id="enterButton">
-            <div class="hearts">
-                <div class="heart">❤️</div>
-                <div class="heart">❤️</div>
-                <div class="heart">❤️</div>
-        </button>
+    <div class="container">
+        <h1>¡Elige una ocasión especial!</h1>
+        <div class="cards">
+            <div class="card san-valentin" id="san-valentin">
+                <img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" alt="San Valentín">
+                <h2>Día de San Valentín</h2>
+                <p>Un mensaje lleno de amor para ti ❤️</p>
+            </div>
+            <div class="card dia-madres" id="dia-madres">
+                <img src="./flor.png" alt="Día de las Madres">
+                <h2>Día de las Madres</h2>
+                <p>Todo el cariño para la mejor mamá 🌸</p>
+            </div>
+        </div>
     </div>
-   
+
+    <footer>
+        <p>Hecho con <span class="corazon">❤️</span> para ti</p>
+        <p>&copy; 2025 - para mi mujer y solo para mi mujer</p>
+    </footer>
 
     <script>
-        const welcomeContainer = document.getElementById('welcomeContainer');
-        const enterButton = document.getElementById('enterButton');
-
-        enterButton.addEventListener('click', () => {
-          
-            welcomeContainer.classList.add('fade-out');
-
+        // Efecto fade al hacer clic en las tarjetas
+        document.getElementById('san-valentin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
             setTimeout(() => {
-                window.location.href = 'amor.html';
-            }, 1000);
+                window.location.href = 'iniciosan.html';
+            }, 500); // Igual que la duración de la transición (0.5s)
+        });
+
+        document.getElementById('dia-madres').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'iniciomimujer.html';
+            }, 500);
         });
     </script>
 </body>
