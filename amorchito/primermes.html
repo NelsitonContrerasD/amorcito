@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Primer Mes</title>
+    <link rel="icon" href="./Corazon_sin_fondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/z.css">
+
+</head>
+<body>
+    <header>Feliz Primer Mes, Mi Amor</header>
+    <main>
+        <div id="s">
+            <a href="inicio.html" class="back-btn">←</a>
+        </div>       
+        
+        <div class="container">
+            <div class="card">
+                <h2 id="amor">Te amo con todo mi ser, te adoro te amo y jamas dejare de amarte! 🥰</h2>
+                <p>
+                    <br>
+                    ¡Feliz Primer Mes de Novios, mi amor! 💙
+                    Desde el primer día que te conocí, mi amor, me di cuenta de que eres maravillosa, bella, inteligente y graciosa;
+                    realmente eres la mujer perfecta para mi y jamás dejaré de amarte. Cada día te amo más y más amor, y te lo digo de todo corazón jamás cambiaré 
+                    de opinión cuando te digo que siempre voy a quererte a mi lado amor sin importar lo demas, tu compañia realmete me hace feliz
+                    cada día contigo es muy bonito y estoy muy feliz de haberte conocido y de porder compartir mi vida contigo.
+                    Estoy realmente feliz de estar a tu lado y cada momento que hemos compartido juntos me hacen muy feliz.
+                    <br><br>
+                    Cada vez que veo esos ojitos lindos, esa boquita, cada vez que hablamos, me doy cuenta de que eres la mujer con la que quiero compartir mi vida entera.
+                    Quiero seguir a tu lado compartiendo momentos cada vez más bellos.
+                    Jamás me cansaré de amarte, eres una mujer realmente maravillosa y te lo haré ver todos los días de mi vida, aunque sea con algo pequeño siempre
+                    te demostraré lo mucho que te amo.
+                    <br><br>TE AMO CON TODA MI ALMA
+                </p>
+                 <P><img src="conswayo-cats.gif" alt="Funny image"></P>  
+                <button id="btn-mes">
+                    <div class="flowers">
+                        <div class="flower">🦋</div>
+                        <div class="flower">🦋</div>
+                        <div class="flower">🦋</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <button class="regalo-btn" id="btn-regalo">🎁</button>
+        <div class="modal" id="modal-regalo">
+            <div class="modal-contenido">
+                <h3>¡Para el amor de mi vida!</h3>
+                
+                <img src="mi niña.gif" alt="Funny image">
+   
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Hecho con <span class="flor">❤️</span> para la mujer que amo</p>
+        <p>&copy; 2025 - Con todo mi amor</p>
+    </footer>
+
+    <script>
+        const mensajes = [
+            "Eres mi mundo entero y te amo con todo mi ser.",
+            "TE AMO CON TODO MI CORAZON",
+            "Cada dia mas enamorado de ti mi amor.",
+            "Gracias por ser mi persona favorita, te amo.",
+            "Mi felicidad eres tú.",
+            "Cada día a tu lado es un regalo, feliz primer mes.",
+            "Eres el amor de mi vida, te amo."
+        ];
+        let mensajeAnterior = "";
+
+        function cambiarMensaje() {
+            let mensajeAleatorio;
+            do {
+                mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+            } while (mensajeAleatorio === mensajeAnterior);
+
+            mensajeAnterior = mensajeAleatorio;
+            document.getElementById("amor").textContent = mensajeAleatorio;
+        }
+
+        document.getElementById("btn-mes").addEventListener("click", cambiarMensaje);
+
+        // Efecto fade al volver al inicio
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.animation = 'fadeOut 0.5s ease-in-out forwards';
+            setTimeout(() => {
+                window.location.href = 'inicio.html';
+            }, 500);
+        });
+        
+        // Script para el modal del regalo
+        const btnRegalo = document.getElementById('btn-regalo');
+        const modalRegalo = document.getElementById('modal-regalo');
+
+        btnRegalo.addEventListener('click', () => {
+            modalRegalo.style.display = 'flex';
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modalRegalo.addEventListener('click', (e) => {
+            if (e.target === modalRegalo) {
+                modalRegalo.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
