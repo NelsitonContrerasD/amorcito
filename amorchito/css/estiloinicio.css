@@ -76,6 +76,17 @@
         .primer-mes {
             border-top: 5px solid #87ceeb; /* Celeste */
         }
+        .card.quinto-mes {
+            border-top: 5px solid #a881af; 
+        }
+        .quinto-mes img {
+            width: 190px; 
+            height: 120px
+        }
+
+        .card.quinto-mes h2 {
+        color: #b03060; 
+        }
         footer {
             width: 100%;
             background-color: #d81b60;

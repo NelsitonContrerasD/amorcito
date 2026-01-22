@@ -11,22 +11,33 @@
     <div class="container">
         <h1>¡Elige una ocasión especial!</h1>
         <div class="cards">
+
             <div class="card san-valentin" id="san-valentin">
                 <img src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" alt="San Valentín">
                 <h2>Día de San Valentín</h2>
                 <p>Un mensaje lleno de amor para ti ❤️</p>
             </div>
+
             <div class="card dia-madres" id="dia-madres">
                 <img src="./flor.png" alt="Día de las Madres">
                 <h2>Día de las Madres</h2>
                 <p>Todo el cariño para la mejor mamá 🌸</p>
             </div>
+
             <div class="card primer-mes" id="primer-mes">
                 <img src="./maripos.png" alt="Primer mes juntos">
                 <h2>Primer mes de novios</h2>
                 <p>para celebrar nuestro primer mes de novios, nuestro aniversario💙</p>
             </div>
+
+            <div class="card quinto-mes" id="quinto-mes">
+                <img src="./calen.png" alt="Quinto mes juntos">
+                <h2>Quinto mes juntos y primero del año mi amor</h2>
+                <p>para celebrar nuestro quinto mes y el primero del año💙</p>
+            </div>
+
         </div>
+        
     </div>
 
     <footer>
@@ -59,6 +70,137 @@
                 window.location.href = 'inicioprimermes.html';
             }, 500);
         });
+
+        document.getElementById('quinto-mes').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                // Aquí pones el nombre del archivo HTML que crearás para esta sección
+                window.location.href = 'inicioquintomes.html'; 
+            }, 500);
+        });
     </script>
+
+
+
+<button class="cronometro-btn" id="btnCronometro">⏳</button>
+
+<div class="modal-cronometro" id="modalCronometro">
+    <div class="contenido-cronometro">
+        <span class="cerrar-cronometro">&times;</span>
+        <h3>Nuestro tiempo juntos ❤️</h3>
+        <div id="reloj">
+            <div class="tiempo-bloque"><span id="dias">00</span><p>Días</p></div>
+            <div class="tiempo-bloque"><span id="horas">00</span><p>Horas</p></div>
+            <div class="tiempo-bloque"><span id="minutos">00</span><p>Min</p></div>
+            <div class="tiempo-bloque"><span id="segundos">00</span><p>Seg</p></div>
+        </div>
+        <p class="frase-amor">"Cada segundo a tu lado es un tesoro"</p>
+    </div>
+</div>
+
+<style>
+    /* Botón flotante lateral */
+    .cronometro-btn {
+        position: fixed;
+        bottom: 100px; /* Arriba del de regalo si es que pones uno */
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #7b1fa2;
+        color: white;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+        transition: transform 0.3s;
+    }
+
+    .cronometro-btn:hover { transform: scale(1.1); }
+
+    /* Modal del Reloj */
+    .modal-cronometro {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenido-cronometro {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        border: 4px solid #ce93d8;
+    }
+
+    .cerrar-cronometro {
+        position: absolute;
+        top: 10px; right: 15px;
+        font-size: 25px; cursor: pointer; color: #7b1fa2;
+    }
+
+    #reloj {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .tiempo-bloque span {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #7b1fa2;
+        display: block;
+    }
+
+    .tiempo-bloque p { font-size: 0.8rem; margin: 0; color: #666; }
+    .frase-amor { font-style: italic; color: #b03060; margin-top: 15px; }
+</style>
+
+<script>
+    const fechaInicio = new Date('August 22, 2025 04:00:00').getTime(); // <-- CAMBIA TU FECHA AQUÍ
+
+    function actualizarCronometro() {
+        const ahora = new Date().getTime();
+        const diferencia = ahora - fechaInicio;
+
+        const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById('dias').innerText = d;
+        document.getElementById('horas').innerText = h < 10 ? '0' + h : h;
+        document.getElementById('minutos').innerText = m < 10 ? '0' + m : m;
+        document.getElementById('segundos').innerText = s < 10 ? '0' + s : s;
+    }
+
+    // Abrir/Cerrar
+    const btnC = document.getElementById('btnCronometro');
+    const modalC = document.getElementById('modalCronometro');
+    const cerrarC = document.querySelector('.cerrar-cronometro');
+
+    btnC.onclick = () => {
+        modalC.style.display = 'flex';
+        setInterval(actualizarCronometro, 1000);
+    };
+
+    cerrarC.onclick = () => modalC.style.display = 'none';
+    window.onclick = (e) => { if(e.target == modalC) modalC.style.display = 'none'; };
+</script>
+
+
+
+
+
+
 </body>
 </html>

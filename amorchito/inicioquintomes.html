@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="Corazon_sin_fondo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Quinto Mes</title>
+    <link rel="stylesheet" href="./css/esitlo boton.css">
+    <style>
+        body {
+            /* Cambiamos el fondo a un lavanda muy claro para combinar con el calendario */
+            background-color: #f3e5f5; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .welcome-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h1 {
+            /* Un color morado elegante para el título */
+            color: #7b1fa2; 
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            /* Botón en tonos lilas */
+            background-color: #e1bee7; 
+            border: 2px solid #ce93d8;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #d1c4e9;
+        }
+
+        .heart {
+            font-size: 24px;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container" id="welcomeContainer">
+        <h1>¡Feliz Quinto Mes y Primero del Año, Mi Amor! 💙</h1>
+        <p>
+            <img src="./gordis.gif" alt="Gatitos celebrando">
+        </p> 
+
+        <button class="btn" id="enterButton">
+            <div class="hearts">
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+                <span class="heart">💜</span>
+            </div>
+        </button>
+    </div>
+    
+    <script>
+        const welcomeContainer = document.getElementById('welcomeContainer');
+        const enterButton = document.getElementById('enterButton');
+
+        enterButton.addEventListener('click', () => {
+            // Añadimos el efecto de desvanecimiento
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                // Esta es la página final del quinto mes (la que tiene las fotos o cartas)
+                window.location.href = 'quintomes.html'; 
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

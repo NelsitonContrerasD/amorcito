@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinto Mes Juntos</title>
+    <link rel="icon" href="./Corazon_sin_fondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/x.css"> 
+    <style>
+        /* Personalización para el Quinto Mes */
+        body {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+        header {
+            background-color: #ba68c8 !important; /* Morado para el encabezado */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .card {
+            border-top: 8px solid #ba68c8; /* Borde morado */
+        }
+        #btn-mes {
+            background-color: #ba68c8; /* Botón lila */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #btn-mes:hover {
+            background-color: #9c27b0;
+            transform: scale(1.05);
+        }
+        .regalo-btn {
+            background-color: #ba68c8; /* Botón flotante morado */
+        }
+    </style>
+</head>
+<body>
+    <header> FELIZ QUITO MES MI AMOR</header>
+    <main>
+        <div id="s">
+            <a href="inicio.html" class="back-btn">←</a>
+        </div>       
+        
+        <div class="container">
+            <div class="card">
+                <h2 id="amor">🥰 ¡Cinco bellos meses a tu lado mi amor! 🥰</h2>
+                <p>
+                    <br>
+                    ¡Feliz Quinto Mes, mi vida! 💜
+                    Parece que fue ayer cuando empezamos, y hoy ya celebramos cinco meses y nuestro primer inicio de año juntos. 
+                    No tengo palabras para explicar lo agradecido que estoy de tenerte. Eres mi apoyo, mi alegría y la razón por la que sonrío cada mañana.
+                    <br><br>
+                    Este año que comienza es una nueva oportunidad para seguir construyendo nuestra historia. Prometo cuidarte, amarte y apoyarte en cada paso que quieras dar.<br>
+                    Te quiero acompañar y cuidar, quiero agradecerte por todo lo que has hecho por mi, cada regalo, cada beso, cada pequeño acto de amor, quiero seguir compartiendo mi vida con la mujer que mas amo en este mundo y cada día me enamoras más con tu forma de ser.
+                    <br><br>
+                    Gracias por estos 5 meses maravillosos. ¡Vamos por mucho más mi amor! quiero compartir mi vida enetera contigo mi amor
+                    <br><br><strong>TE AMO MÁS QUE A NADA EN ESTE MUNDO</strong>
+                </p>
+                 <P><img src="./conswayo-cats.gif" alt="Amor 5 meses"></P>  
+                
+                <button id="btn-mes">
+                    <div class="flowers">
+                        <div class="flower">💜</div>
+                        <div class="flower">💜</div>
+                        <div class="flower">💜</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <button class="regalo-btn" id="btn-regalo">🎁</button>
+        
+        <div class="modal" id="modal-regalo">
+            <div class="modal-contenido">
+                <h3>¡Eres mi mejor regalo del 2026!</h3>
+                <img src="https://media.tenor.com/gT_9f_Hev_8AAAAAi/mochi-peach-cat.gif" alt="Regalo">
+                <p style="margin-top:10px; color: #7b1fa2; font-weight: bold;">¡Te amo mi niña hermosa!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Hecho con el <span class="flor">💜</span> para la mujer de mi vida</p>
+        <p>&copy; 2026 - Nuestro Camino Juntos</p>
+    </footer>
+
+    <script>
+        // Mensajes aleatorios actualizados para el 5to mes
+        const mensajes = [
+            "5 meses y sumando  💜Te amo💜",
+            "Eres el mejor comienzo de mi 2026 💜",
+            "Cinco meses siendo el hombre más feliz del mundo con la mejor novia del mundo.",
+            "Gracias por estar a mi lado cada día, mi amor.",
+            "TE AMO CON TODO MI CORAZÓN Y MI ALMA",
+            "Felices 5 meses, mi princesa hermosa. 💜"
+        ];
+        
+        let mensajeAnterior = "";
+
+        function cambiarMensaje() {
+            let mensajeAleatorio;
+            do {
+                mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+            } while (mensajeAleatorio === mensajeAnterior);
+
+            mensajeAnterior = mensajeAleatorio;
+            document.getElementById("amor").textContent = mensajeAleatorio;
+        }
+
+        document.getElementById("btn-mes").addEventListener("click", cambiarMensaje);
+
+        // Efecto fade al volver
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                window.location.href = 'inicio.html';
+            }, 500);
+        });
+        
+        // Modal del regalo
+        const btnRegalo = document.getElementById('btn-regalo');
+        const modalRegalo = document.getElementById('modal-regalo');
+
+        btnRegalo.addEventListener('click', () => {
+            modalRegalo.style.display = 'flex';
+        });
+
+        modalRegalo.addEventListener('click', (e) => {
+            if (e.target === modalRegalo) {
+                modalRegalo.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
