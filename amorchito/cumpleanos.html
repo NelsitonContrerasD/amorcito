@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Mi Amor</title>
+    <link rel="icon" href="/amorchito/Corazon_sin_fondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/w.css"> 
+    <style>
+        /* Personalización para el Cumpleaños en Turquesa */
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: opacity 0.5s;
+        }
+        header {
+            background-color: #00acc1 !important; /* Turquesa vibrante */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .card {
+            border-top: 8px solid #00acc1; /* Borde turquesa */
+       
+        }
+        #btn-mes {
+            background-color: #00acc1; /* Botón turquesa */
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+      
+            font-weight: bold;
+        }
+        #btn-mes:hover {
+            background-color: #00838f;
+            transform: scale(1.05);
+        }
+        .regalo-btn {
+            background-color: #00acc1; /* Botón flotante turquesa */
+      
+        }
+        .back-btn {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 10px;
+            display: inline-block;
+        }
+        /* Estilos del modal */
+    
+    </style>
+</head>
+<body>
+    <header>¡FELIZ CUMPLEAÑOS MI VIDA! 🎂</header>
+    
+    <main>
+        <div id="s">
+            <a href="inicio.html" class="back-btn">←</a>
+        </div>       
+        
+        <div class="container">
+            <div class="card">
+                <h2 id="amor">🥳 ¡Hoy celebramos tu vida, mi amor! 🥳</h2>
+                <p>
+                    <br>
+                    ¡Feliz Cumpleaños, mi cachetona preciosa y la mujer que mas amo en este mundo! 
+                    <br><br>
+                Disfrurta este dia amorchito mio este dia es solo para ti y nadie mas te deseo lo mejor de este mundo, pasala increible con tu familia que este dia es para compartir con ellos<br>
+                te amo mi niña preciosa recuerda que siempre estare para ti y nunca te dejare sola, te amo con todo mi ser mi amor, pasala increible y que no se te olvide mostrame esa linda sonrisa que me tiene tan enamorado<br><br>
+
+                    <br><br><strong>TE AMO MÁS QUE CUALQUIER COSA EN ESTE MUNDO</strong>
+                </p>
+                
+                <p><img src="./vela.gif" alt="Cumpleaños Amor" style="width:40%; border-radius:10px;"></p>  
+                
+                <button id="btn-mes">
+                    <div class="flowers">
+                        <span class="flower">🎈</span>
+                        <span class="flower">🎂</span>
+                        <span class="flower">🎈</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <button class="regalo-btn" id="btn-regalo">🎁</button>
+        
+        <div class="modal" id="modal-regalo">
+            <div class="modal-contenido">
+                <h3>FELIZ CUMPLE AMORCITO MIO, te regalo esat flor jiji
+                    <br>con todo mi amor
+                </h3>
+                <img src="./yo.jpg" alt="Regalo Cumpleaños">
+                
+                <p style="margin-top:10px; color: #00838f; font-weight: bold;">Te amo mi niña pecosa</p>
+                <a href="./video.html"> :c</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; color: #00838f;">
+        <p>Hecho con el <span class="flor">❤</span> para la cumpleañera más hermosa</p>
+        <p>&copy; 2026 - Celebrando Tu Vida</p>
+    </footer>
+
+    <script>
+        // Mensajes aleatorios para el cumpleaños
+        const mensajes = [
+            "¡Feliz cumple, mi amor! ❣",
+            "Eres mi persona favorita hoy y siempre 🎂",
+            "¡Pide un deseo, que yo pido tenerte siempre! 💘",
+            
+            "TE AMO CON TODO MI CORAZÓN Y MI ALMA",
+            "¡Hoy la reina eres tú! 👑"
+        ];
+        
+        let mensajeAnterior = "";
+
+        function cambiarMensaje() {
+            let mensajeAleatorio;
+            do {
+                mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+            } while (mensajeAleatorio === mensajeAnterior);
+
+            mensajeAnterior = mensajeAleatorio;
+            document.getElementById("amor").textContent = mensajeAleatorio;
+        }
+
+        document.getElementById("btn-mes").addEventListener("click", cambiarMensaje);
+
+        // Efecto fade al volver
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'inicio.html';
+            }, 500);
+        });
+        
+        // Modal del regalo
+        const btnRegalo = document.getElementById('btn-regalo');
+        const modalRegalo = document.getElementById('modal-regalo');
+
+        btnRegalo.addEventListener('click', () => {
+            modalRegalo.style.display = 'flex';
+        });
+
+        modalRegalo.addEventListener('click', (e) => {
+            if (e.target === modalRegalo) {
+                modalRegalo.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

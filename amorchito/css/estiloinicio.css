@@ -86,7 +86,12 @@
 
         .card.quinto-mes h2 {
         color: #b03060; 
-        }
+         color: #b03060; } 
+
+        .card.cumpleanos {
+              color: #b03060; 
+              border-top: 5px solid #40E0D0; 
+         }
         footer {
             width: 100%;
             background-color: #d81b60;

@@ -35,6 +35,13 @@
                 <h2>Quinto mes juntos y primero del año mi amor</h2>
                 <p>para celebrar nuestro quinto mes y el primero del año💙</p>
             </div>
+             
+            <div class="card cumpleanos" id="cumpleanos">
+                <img src="./descarga.png" alt="Feliz Cumpleaños">
+                <h2>Feliz Cumpleaños mi vida</h2>
+                <p>¡Te amo! 🎉</p>
+            </div>
+
 
         </div>
         
@@ -77,6 +84,15 @@
             setTimeout(() => {
                 // Aquí pones el nombre del archivo HTML que crearás para esta sección
                 window.location.href = 'inicioquintomes.html'; 
+            }, 500);
+        });
+
+                document.getElementById('cumpleanos').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                // Aquí pones el nombre del archivo HTML que crearás para esta sección
+                window.location.href = 'iniciocumple.html'; 
             }, 500);
         });
     </script>
