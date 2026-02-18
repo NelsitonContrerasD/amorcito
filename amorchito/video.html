@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>una flor - Feliz Cumpleaños</title>
+    <link rel="icon" href="/amorchito/Corazon_sin_fondo.png" type="image/x-icon">
+    <style>
+        body {
+            /* Fondo degradado turquesa suave */
+            background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #00acc1;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            border: 4px solid #00acc1; /* Borde turquesa resaltado */
+        }
+
+        video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .caption {
+            margin-top: 20px;
+            color: #00838f;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            text-decoration: none;
+            background-color: #00acc1;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,172,193,0.3);
+        }
+
+        .back-btn:hover {
+            background-color: #00838f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,172,193,0.4);
+        }
+
+        /* Decoración de burbujas turquesas de fondo */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>Un flor para ti, mi amor</header>
+
+    <div class="video-container">
+        <video controls poster="./portada-video.jpg">
+            <source src="./video/WhatsApp Video 2026-02-17 at 6.26.32 PM.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+        <p class="caption">"Cada momento a tu lado es mi favorito del día"</p>
+    </div>
+
+    <a href="cumpleanos.html" class="back-btn">← Volver</a>
+
+    <div class="bubble" style="width: 80px; height: 80px; top: 20%; left: 10%;"></div>
+    <div class="bubble" style="width: 40px; height: 40px; top: 70%; left: 85%;"></div>
+    <div class="bubble" style="width: 60px; height: 60px; top: 40%; left: 80%;"></div>
+
+</body>
+</html>
