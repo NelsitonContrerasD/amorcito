@@ -1,2 +1,2 @@
 # amorcito
-# https://nelsitoncontrerasd.github.io/amorcito/amorchito/inicio.html
+# https://nelsitoncontrerasd.github.io/amorcito/amorchito/iniciodeamor.html
