@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Regalos 🎁</title>
+    <link rel="icon" href="./Corazon_sin_fondo.png" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* TONALIDAD CELESTE CÁLIDA Y ROMÁNTICA */
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 20px;
+            color: #004d40;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 18px;
+            background-color: #ffffff;
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.15);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            background-color: #e0f2f1;
+        }
+
+        h1 {
+            color: #00695c;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #004d40;
+        }
+
+        /* CUADRÍCULA DE REGALOS (GRID) */
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* TARJETA DE CADA REGALO */
+        .gift-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0, 77, 64, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 77, 64, 0.22);
+        }
+
+        .gift-img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #e0f2f1;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-card:hover .gift-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .gift-card h3 {
+            color: #00796b;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 5px;
+        }
+
+        /* --- VISOR EN GRANDE (MODAL) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 40, 40, 0.65);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 25px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            transform: scale(0.85);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #00796b;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #004d40;
+        }
+
+        .modal-img-container {
+            width: 100%;
+            max-height: 380px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #e0f2f1;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-img-container img {
+            width: 100%;
+            height: 100%;
+            max-height: 380px;
+            object-fit: contain;
+        }
+
+        .modal-title {
+            color: #00695c;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #004d40;
+        }
+
+        footer span {
+            color: #00897b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="./iniciodeamor.html" class="back-btn">← Volver</a>
+        <h1>gracias por este año amor, de verdad te devolvere cada detalle🎁</h1>
+        <p class="subtitle">cada cosa que me has hecho o dicho para hacerme sentir amando :c</p>
+    </header>
+
+    <main class="gifts-grid">
+
+        <!-- REGALO 1 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/1.jpeg" alt="Regalo 1">
+            </div>
+            <h3>un dibujo que te hice de tu hijo</h3>
+        </div>
+
+        <!-- REGALO 2 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/2.jpeg" alt="Regalo 2">
+            </div>
+            <h3>nosotros en gato gorda</h3>
+        </div>
+
+        <!-- REGALO 3 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/3.jpeg" alt="Regalo 3">
+            </div>
+            <h3>un dibujo mas de tu hijo gorda jajaja</h3>
+        </div>
+
+        <!-- REGALO 4 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/4.jpeg" alt="Regalo 4">
+            </div>
+            <h3>nuestro aniversario gorda jajaja</h3>
+        </div>
+
+        <!-- REGALO 5 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/5.jpeg" alt="Regalo 5">
+            </div>
+            <h3>otro aniversario groda, me haces cosas muy lindas</h3>
+        </div>
+
+        <!-- REGALO 6 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/6.jpeg" alt="Regalo 6">
+            </div>
+            <h3>dia del novio, te amo :c</h3>
+        </div>
+
+        <!-- REGALO 7 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/7.jpeg" alt="Regalo 7">
+            </div>
+            <h3>otro regalo por mi cumpleaños :c</h3>
+        </div>
+
+        <!-- REGALO 8 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/8.jpeg" alt="Regalo 8">
+            </div>
+            <h3>por que eres tan linda gorda :c?</h3>
+        </div>
+
+        <!-- REGALO 9 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/9.jpeg" alt="Regalo 9">
+            </div>
+            <h3>teamo </h3>
+        </div>
+
+        <!-- REGALO 10 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/10.jpeg" alt="Regalo 10">
+            </div>
+            <h3>ya se por que te amo tanto :c</h3>
+        </div>
+
+        <!-- REGALO 11 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/11.jpeg" alt="Regalo 11">
+            </div>
+            <h3>:c</h3>
+        </div>
+
+        <!-- REGALO 12 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/12.jpeg" alt="Regalo 12">
+            </div>
+            <h3>te extraño, demasiado :c</h3>
+        </div>
+
+        <!-- REGALO 14 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/14.jpeg" alt="Regalo 14">
+            </div>
+            <h3>amo esa personita con tu corazon</h3>
+        </div>
+
+        <!-- REGALO 15 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/15.jpeg" alt="Regalo 15">
+            </div>
+            <h3>me trae nostalgia :c las cosas tan lindas que me decias :c
+            
+            </h3>
+        </div>
+
+        <!-- REGALO 16 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/16.jpeg" alt="Regalo 16">
+            </div>
+            <h3>como me puedo enojar con esa persona tan bella que eres :c</h3>
+        </div>
+
+        <!-- REGALO 17 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/17.jpeg" alt="Regalo 17">
+            </div>
+            <h3>ese dia, me hiciste sentir mejor con todo y me hiciste olvidar muchas cosas feas, gracias amor</h3>
+        </div>
+
+        <!-- REGALO 18 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/18.jpeg" alt="Regalo 18">
+            </div>
+            <h3>te amo, siempre haces que tenga una sonrrisa </h3>
+        </div>
+
+        <!-- REGALO 19 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/19.jpeg" alt="Regalo 19">
+            </div>
+            <h3>siempre tendre cada cosita que me dices en mi corazon</h3>
+        </div>
+
+        <!-- REGALO 20 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/20.jpeg" alt="Regalo 20">
+            </div>
+            <h3>mensajes que me hicieron senir bonito jajaj</h3>
+        </div>
+
+                <!-- REGALO 14 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/21.jpeg" alt="Regalo 21">
+            </div>
+            <h3>medio año en el que estuvimos juntos, simplemente amo cada momento a tu lado</h3>
+        </div>
+
+        <!-- REGALO 15 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/22.jpeg" alt="Regalo 22">
+            </div>
+            <h3>siempre seras esa mujer que me llena de alegria y motivacion</h3>
+        </div>
+
+        <!-- REGALO 16 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/23.jpeg" alt="Regalo 23">
+            </div>
+            <h3>te amo gorda :c</h3>
+        </div>
+
+        <!-- REGALO 17 -->
+        <div class="gift-card">
+            <div class="gift-img-wrapper">
+                <img src="../amorchito/regalos/24.jpeg" alt="Regalo 24">
+            </div>
+            <h3>que bonito dia gorda, gracias por estar en mis momentos dificiles ya llegara el dia en el que te devolvere todo lo que mi corazon quiere darte</h3>
+        </div>
+
+                <!-- REGALO 18 -->
+        <div class="gift-card" data-video="../amorchito/regalos/25.mp4">
+            <div class="gift-img-wrapper">
+                <!-- poster="./vista_previa.jpg" es la portada fija antes de reproducir -->
+                <video src="../amorchito/regalos/25.mp4" muted loop poster="./portada1.jpg"></video>
+            </div>
+            <h3>el video que me hiciste el dia de mi cumple jaja te amo</h3>
+        </div>
+
+                        <!-- REGALO 18 -->
+        <div class="gift-card" data-video="../amorchito/regalos/25.mp4">
+            <div class="gift-img-wrapper">
+                <!-- poster="./vista_previa.jpg" es la portada fija antes de reproducir -->
+                <video src="../amorchito/regalos/26.mp4" muted loop poster="./portada1.jpg"></video>
+            </div>
+            <h3>otro video mas que me hiciste que me hizo sentir amado</h3>
+        </div>
+
+    </main>
+
+    <!-- VENTANA MODAL (VISOR EN GRANDE) -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal-card">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-img-container">
+            <!-- Elemento para imágenes -->
+            <img src="" alt="Regalo en grande" id="modal-img" style="display: none;">
+            <!-- Elemento para videos (con controles de reproducción) -->
+            <video id="modal-video" controls style="display: none; width: 100%; max-height: 380px; border-radius: 12px;"></video>
+        </div>
+        <h2 class="modal-title" id="modal-title">Título del regalo</h2>
+    </div>
+</div>
+
+    <footer>
+        <p>Hecho con el <span>❤️</span> para ti</p>
+        <p>© 2026 - para mi mujer y solo para mi mujer</p>
+    </footer>
+
+    <script>
+const giftCards = document.querySelectorAll('.gift-card');
+const modalOverlay = document.getElementById('modal-overlay');
+const modalImg = document.getElementById('modal-img');
+const modalVideo = document.getElementById('modal-video');
+const modalTitle = document.getElementById('modal-title');
+const modalClose = document.getElementById('modal-close');
+
+giftCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const title = card.querySelector('h3');
+        const img = card.querySelector('img');
+        const video = card.querySelector('video');
+
+        modalTitle.textContent = title.textContent;
+
+        // Si la tarjeta contiene un VIDEO
+        if (video) {
+            modalImg.style.display = 'none';
+            modalVideo.style.display = 'block';
+            modalVideo.src = video.src;
+            modalVideo.play(); // Inicia la reproducción automática al abrir
+        } 
+        // Si la tarjeta contiene una IMAGEN
+        else if (img) {
+            modalVideo.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+            modalImg.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        modalOverlay.classList.add('active');
+    });
+});
+
+// Función para cerrar el modal y pausar el video
+function closeModal() {
+    modalOverlay.classList.remove('active');
+    modalVideo.pause();
+    modalVideo.src = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+
+modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+        closeModal();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+        closeModal();
+    }
+});
+    </script>
+
+</body>
+</html>
